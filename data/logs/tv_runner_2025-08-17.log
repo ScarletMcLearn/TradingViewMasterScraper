@@ -33,3 +33,38 @@
 2025-08-16 23:28:37 | INFO     |  - data/dse_profits/dse_profits_2025-08-17.csv
 2025-08-16 23:28:37 | INFO     |  - data/dse_income_statement/dse_income_statement_2025-08-17.csv
 2025-08-16 23:28:37 | INFO     |  - data/dse_technicals/dse_technicals_2025-08-17.csv
+2025-08-16 23:43:25 | INFO     | ▶ START: Overview (All) -> data/dse_overview/dse_screener_all_2025-08-17.csv
+2025-08-16 23:43:26 | INFO     | ✔ DONE: Overview (All) | rows=394 | elapsed=1.05s | saved=data/dse_overview/dse_screener_all_2025-08-17.csv
+2025-08-16 23:43:26 | INFO     | ▶ START: Balance Sheets -> data/dse_balance_sheets/dse_balance_sheet_2025-08-17.csv
+2025-08-16 23:43:28 | INFO     | ✔ DONE: Balance Sheets | rows=394 | elapsed=2.00s | saved=data/dse_balance_sheets/dse_balance_sheet_2025-08-17.csv
+2025-08-16 23:43:28 | INFO     | ▶ START: Cash Flow -> data/dse_cashflow/dse_cashflow_2025-08-17.csv
+2025-08-16 23:43:30 | INFO     | ✔ DONE: Cash Flow | rows=394 | elapsed=1.99s | saved=data/dse_cashflow/dse_cashflow_2025-08-17.csv
+2025-08-16 23:43:30 | INFO     | ▶ START: Per Share -> data/dse_per_share/dse_per_share_2025-08-17.csv
+2025-08-16 23:43:32 | INFO     | ✔ DONE: Per Share | rows=394 | elapsed=2.01s | saved=data/dse_per_share/dse_per_share_2025-08-17.csv
+2025-08-16 23:43:32 | INFO     | ▶ START: Performance -> data/dse_performance/dse_performance_2025-08-17.csv
+2025-08-16 23:43:33 | INFO     | ✔ DONE: Performance | rows=394 | elapsed=1.03s | saved=data/dse_performance/dse_performance_2025-08-17.csv
+2025-08-16 23:43:33 | INFO     | ▶ START: Extended Hours -> data/dse_extended_hours/dse_extended_hours_2025-08-17.csv
+2025-08-16 23:43:34 | INFO     | ✔ DONE: Extended Hours | rows=394 | elapsed=0.97s | saved=data/dse_extended_hours/dse_extended_hours_2025-08-17.csv
+2025-08-16 23:43:34 | INFO     | ▶ START: Dividends -> data/dse_dividends/dse_dividends_2025-08-17.csv
+2025-08-16 23:43:35 | INFO     | ✔ DONE: Dividends | rows=394 | elapsed=0.53s | saved=data/dse_dividends/dse_dividends_2025-08-17.csv
+2025-08-16 23:43:35 | INFO     | ▶ START: Valuation -> data/dse_valuation/dse_valuation_2025-08-17.csv
+2025-08-16 23:43:35 | INFO     | ✔ DONE: Valuation | rows=394 | elapsed=0.52s | saved=data/dse_valuation/dse_valuation_2025-08-17.csv
+2025-08-16 23:43:35 | INFO     | ▶ START: Profits -> data/dse_profits/dse_profits_2025-08-17.csv
+2025-08-16 23:43:36 | INFO     | ✔ DONE: Profits | rows=394 | elapsed=0.48s | saved=data/dse_profits/dse_profits_2025-08-17.csv
+2025-08-16 23:43:36 | INFO     | ▶ START: Income Statement -> data/dse_income_statement/dse_income_statement_2025-08-17.csv
+2025-08-16 23:43:36 | INFO     | ✔ DONE: Income Statement | rows=394 | elapsed=0.50s | saved=data/dse_income_statement/dse_income_statement_2025-08-17.csv
+2025-08-16 23:43:36 | INFO     | ▶ START: Technicals -> data/dse_technicals/dse_technicals_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     | ✔ DONE: Technicals | rows=394 | elapsed=0.51s | saved=data/dse_technicals/dse_technicals_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     | SUMMARY: tasks=11 | failures=0 | total_rows=4334 | total_time=11.58s
+2025-08-16 23:43:37 | INFO     | Saved files:
+2025-08-16 23:43:37 | INFO     |  - data/dse_overview/dse_screener_all_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_balance_sheets/dse_balance_sheet_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_cashflow/dse_cashflow_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_per_share/dse_per_share_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_performance/dse_performance_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_extended_hours/dse_extended_hours_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_dividends/dse_dividends_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_valuation/dse_valuation_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_profits/dse_profits_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_income_statement/dse_income_statement_2025-08-17.csv
+2025-08-16 23:43:37 | INFO     |  - data/dse_technicals/dse_technicals_2025-08-17.csv
