@@ -42,8 +42,10 @@ jobs:
       - name: Run runner (writes dated CSVs under data/)
         env:
           PYTHONPATH: .
+        # run: |
+        #   python -m TradingViewMasterScraper.runner
         run: |
-          python -m TradingViewMasterScraper.runner
+          python TradingViewMasterScraper/runner.py
 
       - name: Commit & push if anything changed in data/
         run: |
