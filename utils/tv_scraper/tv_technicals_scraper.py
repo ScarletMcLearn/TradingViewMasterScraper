@@ -8,7 +8,7 @@ from utils.requests.requests_wrapper import create_session, SafeSession
 # tv_bangladesh_technical.py
 # Requirements: pandas, requests, tenacity, and your safe_requests.py in the same directory.
 
-from __future__ import annotations
+# from __future__ import annotations
 import uuid
 import logging
 from typing import List, Dict, Optional
