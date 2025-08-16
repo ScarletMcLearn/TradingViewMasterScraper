@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 # ---- Your SafeSession wrapper ----
-from safe_requests import create_session
+from utils.requests.requests_wrapper import create_session
 
 # ---- Import all fetchers ----
 # (Modules that accept an injected session)

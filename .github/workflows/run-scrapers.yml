@@ -45,7 +45,7 @@ jobs:
         # run: |
         #   python -m TradingViewMasterScraper.runner
         run: |
-          python runner.py
+          python -m runner
 
       - name: Commit & push if anything changed in data/
         run: |
