@@ -43,7 +43,7 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          python -m TradingViewAllScreenerScraper.run_all_screener_scrapes
+          python -m TradingViewAllScreenerScraper.runner
 
       - name: Commit & push if anything changed in data/
         run: |
