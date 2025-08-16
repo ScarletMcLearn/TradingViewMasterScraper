@@ -1,0 +1,4 @@
+pandas==2.3.1
+requests==2.32.4
+tenacity==9.1.2
+responses==0.25.8
