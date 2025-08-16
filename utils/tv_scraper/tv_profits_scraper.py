@@ -175,7 +175,8 @@ def _rows_to_records(raw_items: list) -> List[dict]:
 def fetch_all_bangladesh_stocks_profits(page_size: int = 400,
                                         max_total: Optional[int] = None,
                                         csv_path: Optional[str] = None,
-                                        debug: bool = False) -> pd.DataFrame:
+                                        debug: bool = False,
+                                        session: Optional[SafeSession] = None) -> pd.DataFrame:
     """
     Fetch all Bangladesh stocks (profits view), paginate across all pages, and return a DataFrame:
       Symbol, Name, Gross/Operating/Pretax/Net Margin TTM, FCF Margin TTM,
@@ -183,7 +184,7 @@ def fetch_all_bangladesh_stocks_profits(page_size: int = 400,
     If `csv_path` is provided, also saves CSV (no index).
     """
     # One shared session => shared token bucket & retries across pages
-    s = create_session(
+    s = session or create_session(
         max_calls=4, per_seconds=1.0, burst=6,         # polite shared rate limit
         max_attempts=6, backoff_min=0.5, backoff_max=10.0,
         user_agent="bd-screener-profits/1.0 (+https://example.com)",
@@ -233,10 +234,16 @@ def fetch_all_bangladesh_stocks_profits(page_size: int = 400,
 # ---------- Example run ----------
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
+    session = create_session(
+        max_calls=4, per_seconds=1.0, burst=6,
+        max_attempts=6, backoff_min=0.5, backoff_max=10.0,
+        user_agent="bd-screener-profits/1.0 (+https://example.com)",
+    )
     df = fetch_all_bangladesh_stocks_profits(
         page_size=400,
         # csv_path="bangladesh_profits.csv",  # pass a filename to save; omit to skip saving
-        debug=True
+        debug=True,
+        session=session
     )
     print(df.head(10).to_string(index=False))
     print("\nRows fetched:", len(df))

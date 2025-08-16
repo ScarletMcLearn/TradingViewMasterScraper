@@ -210,7 +210,8 @@ def _rows_to_df_rows(raw_items: list) -> list[dict]:
 
 def fetch_all_bangladesh_stocks_performance(page_size: int = 200,
                                             max_total: Optional[int] = None,
-                                            debug: bool = False) -> pd.DataFrame:
+                                            debug: bool = False,
+                                            session: Optional[SafeSession] = None) -> pd.DataFrame:
     """
     Fetch *all* pages from TradingView Bangladesh screener using your exact payload,
     and return a DataFrame with the columns you listed.
@@ -224,7 +225,7 @@ def fetch_all_bangladesh_stocks_performance(page_size: int = 200,
       pandas.DataFrame with FINAL_COLUMNS order.
     """
     # Shared session = shared rate limit + retries for all pages
-    s = create_session(
+    s = session or create_session(
         max_calls=4, per_seconds=1.0, burst=6,      # polite shared rate limit
         max_attempts=6, backoff_min=0.5, backoff_max=10.0,
         user_agent="bd-screener/1.0 (+https://example.com)",
@@ -279,7 +280,12 @@ def fetch_all_bangladesh_stocks_performance(page_size: int = 200,
 # ---------- Example run ----------
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
-    df = fetch_all_bangladesh_stocks_performance(page_size=200, debug=True)
+    session = create_session(
+        max_calls=4, per_seconds=1.0, burst=6,
+        max_attempts=6, backoff_min=0.5, backoff_max=10.0,
+        user_agent="bd-screener/1.0 (+https://example.com)",
+    )
+    df = fetch_all_bangladesh_stocks_performance(page_size=200, debug=True, session=session)
     print(df.head(10).to_string(index=False))
     print("\nRows fetched:", len(df))
     df.to_csv("dse_screener_performance_all.csv", index=False)

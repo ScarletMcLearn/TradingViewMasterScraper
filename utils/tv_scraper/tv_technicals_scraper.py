@@ -248,7 +248,8 @@ def fetch_all_bangladesh_stocks_technical(page_size: int = 400,
                                           max_total: Optional[int] = None,
                                           csv_path: Optional[str] = None,
                                           debug: bool = False,
-                                          include_candle_columns: bool = False) -> pd.DataFrame:
+                                          include_candle_columns: bool = False,
+                                          session: Optional[SafeSession] = None) -> pd.DataFrame:
     """
     Fetch all Bangladesh stocks (technical view), paginate across all pages, and return a DataFrame:
       Symbol, Name, Tech/MA/Os Ratings (human text), RSI(14), Mom(10), AO, CCI(20),
@@ -258,7 +259,7 @@ def fetch_all_bangladesh_stocks_technical(page_size: int = 400,
     If `csv_path` is provided, saves CSV (no index).
     """
     # One shared session => shared token bucket & retries across pages
-    s = create_session(
+    s = session or create_session(
         max_calls=4, per_seconds=1.0, burst=6,         # polite shared rate limit
         max_attempts=6, backoff_min=0.5, backoff_max=10.0,
         user_agent="bd-screener-technical/1.1 (+https://example.com)",
@@ -320,11 +321,17 @@ def fetch_all_bangladesh_stocks_technical(page_size: int = 400,
 # ---------- Example run ----------
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
+    session = create_session(
+        max_calls=4, per_seconds=1.0, burst=6,
+        max_attempts=6, backoff_min=0.5, backoff_max=10.0,
+        user_agent="bd-screener-technical/1.1 (+https://example.com)",
+    )
     df = fetch_all_bangladesh_stocks_technical(
         page_size=400,
         # csv_path="bangladesh_technical.csv",  # pass a filename to save; omit to skip saving
         include_candle_columns=False,          # set True to include one column per candle flag
-        debug=True
+        debug=True,
+        session=session
     )
     print(df.head(10).to_string(index=False))
     print("\nRows fetched:", len(df))

@@ -192,7 +192,8 @@ def _rows_to_df_records(raw_items: list) -> List[dict]:
 def fetch_all_bangladesh_stocks_extended_hours(page_size: int = 300,
                                                max_total: Optional[int] = None,
                                                csv_path: str = "bangladesh_extended_hours.csv",
-                                               debug: bool = False) -> pd.DataFrame:
+                                               debug: bool = False,
+                                               session: Optional[SafeSession] = None) -> pd.DataFrame:
     """
     Fetch all Bangladesh stocks (extended-hours payload), paginate through every page,
     and save the resulting DataFrame to CSV.
@@ -200,7 +201,7 @@ def fetch_all_bangladesh_stocks_extended_hours(page_size: int = 300,
     Returns the pandas.DataFrame.
     """
     # Shared session => shared token bucket & retries across pages
-    s = create_session(
+    s = session or create_session(
         max_calls=4, per_seconds=1.0, burst=6,      # polite shared rate limit
         max_attempts=6, backoff_min=0.5, backoff_max=10.0,
         user_agent="bd-screener-extended/1.0 (+https://example.com)",
@@ -257,8 +258,14 @@ def fetch_all_bangladesh_stocks_extended_hours(page_size: int = 300,
 # ------------- Example run -------------
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
+    session = create_session(
+        max_calls=4, per_seconds=1.0, burst=6,
+        max_attempts=6, backoff_min=0.5, backoff_max=10.0,
+        user_agent="bd-screener-extended/1.0 (+https://example.com)",
+    )
     df = fetch_all_bangladesh_stocks_extended_hours(page_size=300,
                                                     csv_path="bangladesh_extended_hours.csv",
-                                                    debug=True)
+                                                    debug=True,
+                                                    session=session)
     print(df.head(10).to_string(index=False))
     print("\nRows fetched:", len(df))
