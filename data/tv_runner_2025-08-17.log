@@ -1,0 +1,23 @@
+2025-08-16 23:17:49 | INFO     | ▶ START: Overview (All) -> data/dse_screener_all_2025-08-17.csv
+2025-08-16 23:17:50 | INFO     | ✔ DONE: Overview (All) | rows=394 | elapsed=1.05s | saved=data/dse_screener_all_2025-08-17.csv
+2025-08-16 23:17:50 | INFO     | ▶ START: Balance Sheets -> data/dse_balance_sheet_2025-08-17.csv
+2025-08-16 23:17:52 | INFO     | ✔ DONE: Balance Sheets | rows=394 | elapsed=2.00s | saved=data/dse_balance_sheet_2025-08-17.csv
+2025-08-16 23:17:52 | INFO     | ▶ START: Cash Flow -> data/dse_cashflow_2025-08-17.csv
+2025-08-16 23:17:54 | INFO     | ✔ DONE: Cash Flow | rows=394 | elapsed=2.00s | saved=data/dse_cashflow_2025-08-17.csv
+2025-08-16 23:17:54 | INFO     | ▶ START: Per Share -> data/dse_per_share_2025-08-17.csv
+2025-08-16 23:17:56 | INFO     | ✔ DONE: Per Share | rows=394 | elapsed=1.99s | saved=data/dse_per_share_2025-08-17.csv
+2025-08-16 23:17:56 | INFO     | ▶ START: Performance -> data/bangladesh_performance_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Performance | rows=394 | elapsed=0.19s | saved=data/bangladesh_performance_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ▶ START: Extended Hours -> data/bangladesh_extended_hours_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Extended Hours | rows=394 | elapsed=0.21s | saved=data/bangladesh_extended_hours_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ▶ START: Dividends -> data/bangladesh_dividends_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Dividends | rows=394 | elapsed=0.09s | saved=data/bangladesh_dividends_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ▶ START: Valuation -> data/bangladesh_valuation_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Valuation | rows=394 | elapsed=0.17s | saved=data/bangladesh_valuation_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ▶ START: Profits -> data/bangladesh_profits_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Profits | rows=394 | elapsed=0.08s | saved=data/bangladesh_profits_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ▶ START: Income Statement -> data/bangladesh_income_statement_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Income Statement | rows=394 | elapsed=0.16s | saved=data/bangladesh_income_statement_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ▶ START: Technicals -> data/bangladesh_technical_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | ✔ DONE: Technicals | rows=394 | elapsed=0.10s | saved=data/bangladesh_technical_2025-08-17.csv
+2025-08-16 23:17:57 | INFO     | SUMMARY: tasks=11 | failures=0 | total_rows=4334 | total_time=8.04s
