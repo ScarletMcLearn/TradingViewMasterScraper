@@ -3,7 +3,7 @@ name: Run TradingView Screener (Sun–Thu 10:00 BD)
 on:
   schedule:
     # 04:00 UTC = 10:00 Asia/Dhaka; run Sunday..Thursday (0=Sun ... 6=Sat)
-    - cron: "0 5 * * 0-5"
+    - cron: "0 4 * * 0-4"
   workflow_dispatch: {}  # allow manual runs
 
 permissions:
