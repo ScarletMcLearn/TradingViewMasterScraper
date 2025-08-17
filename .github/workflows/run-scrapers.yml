@@ -3,14 +3,14 @@ name: Run TradingView Screener (Sun–Thu 10:00 BD)
 on:
   schedule:
     # 04:00 UTC = 10:00 Asia/Dhaka; run Sunday..Thursday (0=Sun ... 6=Sat)
-    - cron: "0 4 * * 0-4"
-  workflow_dispatch: {} # allow manual runs
+    - cron: "0 5 * * 0-5"
+  workflow_dispatch: {}  # allow manual runs
 
 permissions:
-  contents: write # needed to push the new CSVs/logs
+  contents: write   # needed for committing CSVs
 
 concurrency:
-  group: "tv-screener"
+  group: tv-screener
   cancel-in-progress: false
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # so we can push back
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,27 +35,44 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            # fallback if you don't have a requirements.txt
             pip install requests tenacity pandas
           fi
 
-      - name: Run runner (writes dated CSVs under data/)
+      - name: Run orchestrator (writes CSVs under data/)
         env:
+          PYTHONUNBUFFERED: "1"
           PYTHONPATH: .
-        # run: |
-        #   python -m TradingViewMasterScraper.runner
         run: |
-          python -m runner
+          # Use the entrypoint you know works. If your working one is scripts.run_all, keep it:
+          python -m scripts.run_all
+          # If you truly use `runner`, ensure it's importable:
+          # python -m runner
 
-      - name: Commit & push if anything changed in data/
+      - name: Show data dir (debug)
+        run: |
+          echo "==== git status ===="
+          git status --porcelain
+          echo "==== list data ===="
+          ls -R data || true
+
+      - name: Commit & push if CSVs changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Only add the data directory; this prevents unrelated files from being committed
-          git add data/
+          # Only stage CSVs under data/ (recursive)
+          git add data/**/*.csv data/*.csv 2>/dev/null || true
           if git diff --staged --quiet; then
-            echo "No changes to commit."
+            echo "No CSV changes to commit."
           else
             git commit -m "Data: update screener outputs for $(date -u +'%Y-%m-%d')"
             git push
           fi
+
+      - name: Upload CSVs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dse-screener-csv
+          path: |
+            data/**/*.csv
+            data/*.csv
+          if-no-files-found: warn
