@@ -44,9 +44,9 @@ jobs:
           PYTHONPATH: .
         run: |
           # Use the entrypoint you know works. If your working one is scripts.run_all, keep it:
-          python -m scripts.run_all
+          # python -m scripts.run_all
           # If you truly use `runner`, ensure it's importable:
-          # python -m runner
+          python -m runner
 
       - name: Show data dir (debug)
         run: |
