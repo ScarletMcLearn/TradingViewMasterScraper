@@ -68,11 +68,11 @@ jobs:
             git push
           fi
 
-      - name: Upload CSVs as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dse-screener-csv
-          path: |
-            data/**/*.csv
-            data/*.csv
-          if-no-files-found: warn
+      # - name: Upload CSVs as artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: dse-screener-csv
+      #     path: |
+      #       data/**/*.csv
+      #       data/*.csv
+      #     if-no-files-found: warn
